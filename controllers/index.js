@@ -6,7 +6,7 @@ module.exports = function (router) {
 
     router.post('/', function (req, res) {
 
-        var { aeroporto: aeroporto, nuvens: nuvens, terreno: terreno } = req.query;
+        var { aeroporto: aeroporto, nuvens: nuvens, terreno: terreno } = req.body;
 
         var retorno = new Dados(aeroporto, nuvens, terreno);
 
