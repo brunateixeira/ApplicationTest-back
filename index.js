@@ -2,18 +2,19 @@
 
 const express = require('express');
 const kraken = require('kraken-js');
+var cors = require('cors');
 
 var options, app, port;
 
 port = (process.env.PORT || 3030),
-options = {
-    onconfig: function (config, next) {
-        next(null, config);
+    options = {
+        onconfig: function (config, next) {
+            next(null, config);
+        }
     }
-}
 
 app = module.exports = express();
-
+app.use(cors('*'));
 app.use(kraken(options))
 
 app.on('start', function () {
